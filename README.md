@@ -14,4 +14,4 @@ Modification methods:
 
 "Options" -> "Execution Modes", "Console Application" panel, and change the value of the "Executable" field for the BibTeX accessory from bibtex.exe to biber.exe:
 
-![](WinEdt_edit.png)
+![WinEdt_edit](WinEdt_edit.png)
