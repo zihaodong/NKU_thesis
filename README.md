@@ -15,3 +15,7 @@ Modification methods:
 "Options" -> "Execution Modes", "Console Application" panel, and change the value of the "Executable" field for the BibTeX accessory from bibtex.exe to biber.exe:
 
 ![WinEdt](./WinEdt_edit.png)
+
+(2) TexMaker
+
+![TexMaker](./TexMaker_edit.png)
