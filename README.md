@@ -8,14 +8,5 @@ See NKU_temp.pdf for details.
 1. This thesis is complied in the order of  **XeLaTeX-Biblatex-XeLaTeX-XeLaTeX**
 
 2. The Biblatex of tex will be modified from "bibtex" to "biber", so that the correct reference could be obtained.
-Modification methods:
+Modification methods: please see LaTeX编译说明.pdf for details.
 
-(1) WinEdt
-
-"Options" -> "Execution Modes", "Console Application" panel, and change the value of the "Executable" field for the BibTeX accessory from bibtex.exe to biber.exe:
-
-![WinEdt] (./WinEdt_edit.png)
-
-(2) TexMaker
-
-![TexMaker] (./TexMaker_edit.png)
