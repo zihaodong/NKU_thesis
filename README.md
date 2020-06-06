@@ -5,7 +5,7 @@ This project is Latex Template for thesis of Nankai University, please complete 
 See NKU_temp.pdf for details.
 
 ## Latex compilation instruction
-1. This thesis is complied in the order of  \textbf{XeLaTeX-Biblatex-XeLaTeX-XeLaTeX}
+1. This thesis is complied in the order of  $\textbf{XeLaTeX-Biblatex-XeLaTeX-XeLaTeX}$
 
 2. The Biblatex of tex will be modified from "bibtex" to "biber", so that the correct reference could be obtained.
 Modification methods:
