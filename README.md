@@ -10,3 +10,4 @@ See NKU_temp.pdf for details.
 2. The Biblatex of tex will be modified from "bibtex" to "biber", so that the correct reference could be obtained.
 Modification methods: please see LaTeX编译说明.pdf for details.
 
+![](./WinEdt_edit.png)
