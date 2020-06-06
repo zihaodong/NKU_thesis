@@ -1,0 +1,46 @@
+% -*- coding: utf-8 -*-
+
+
+\begin{zhaiyao}
+%这里输入中文摘要。
+随着社会的快速发展和媒体形式的多样化，如何在有限的计算资源上高效、准确地理解并分割图像的语义内容，已经成为计算机视觉领域的巨大挑战。图像分割是计算机视觉方向中的重要分支，它是图像理解领域中所关注的一个热点，并广泛应用于遥感、目标跟踪、工业检测与交通监控等场景。其中，在有监督或弱监督等多种约束情况下理解图像的多类特征，并且降低模型的计算复杂度，使其高效地完成图像分析和目标预测，是当前计算机视觉和图形学领域的重要研究课题。
+
+本文围绕图像的高效分割与优化以及所在的应用场景，研究了细粒度边缘感知方法在图像分割中的应用、密集人群场景下的图像目标计数与分割、小样本下的轻量级卷积模型构建及其在语义分割中的应用、交互式的图像标注与自动的实例分割算法等重点问题。其中，主要工作和创新点体现在以下4个方面：
+
+1. 针对目前语义分割方法预测出的结果通常存在边缘模糊和准确度较低的问题，本文提出了基于多类别边缘感知的图像分割方法。首先设计一种用于多目标分割的 Multi-sigmoid 损失函数，建立可优化类别边界的语义分割模型；然后构建出可用于细粒度边缘检测的深度多尺度编解码模型(MSDF)，同时基于MSDF模型研究了遮挡边缘检测这一特殊问题的解决方案；最后将 FCN+CRF 提取到的分割信息作为一元势， MSDF 检测到的边缘特征作为二元势，设计全局能量函数并计算最小值，实现分割结果的进一步优化。在2个标准数据集Pascal context和SIFT Flow上的实验表明，该模型的总体性能较为优越。
+
+2. 针对密集场景下的目标分割、计数与识别问题，提出了一种带有前景点监督的尺度递归网络(SRN)。该方法在编解码递归结构中利用相邻尺度间的特征来处理空间尺度变化，同时设计了一种新的基于行向量的计数损失函数用以关注人群计数的准确性。另一方面，我们在训练过程中增加了一个额外的前景点分割任务，并利用多任务学习框架完成以上两种类型的特征融合；然后通过一种联合训练方案将多个损失函数进行集成，提高了密度图质量和人群计数的性能。最后我们将该方法扩展到了弱监督学习领域，构建出了一种基于SRN和卷积赢者通吃模块(CWTA)的弱监督深度框架。在ShanghaiTech、UCF$\_$CC$\_$50和UCSD数据集上的实验验证了本算法的有效性。
+
+3. 针对图像训练集中普遍存在着学习样本较少、弱标签等问题，本文讨论了轻量级数据和轻量级卷积模型两种相关的情况，其中轻量级数据又包括弱标注数据和小样本(few-shot)数据。首先，在工件表面缺陷检测的具体场景中，我们提出了一种基于图像块的轻量级全卷积模块，组成多列卷积神经网络，并利用一种多示例学习(MIL)池化层生成更加精确的分割结果。在DAGM2007工业数据集上的实验表明，该模型在表面缺陷分割中的有效性能。然后在小样本语义分割场景中，我们提出了一种基于多尺度辨别位置感知的双分支网络(MDL)。该方法利用从支持数据集中提取到的特征调整图像分割分支3个尺度的参数，辨别位置感知模块可进一步提高查询图像的语义分割效率。在Pascal VOC 2012数据集上的实验结果显示MDL 模型较高的分割精度。最后，借鉴上述两种轻量级场景，我们构建了一种通用的轻量级散射变换模型，它采用一种基于图像块的双向RNN 层对输入图像进行水平和垂直扫描获得序列特征；同时以小波变换为固定滤波器，并增加一个可学习且带有稀疏特征的权值矩阵。提出的轻量级散射变换层可灵活构建多种混合架构。MNIST, CIFAR-10, CIFAR-100, Small NORB和Tiny ImageNet以及小样本数据集上的定量实验验证了该方法在少量训练样本下的分类准确性；基于医学数据集上的实验验证了该方法在语义分割任务的有效性能。
+
+4. 针对目标实例分割方法的泛化性以及实例标注问题，提出了一种可简单交互的深度活动曲线网络(DACN)，并设计了基于Flask框架的在线标注系统。在多尺度编码器中分别预测并融合目标的边缘和分割特征，同时以多层残差图卷积网络作为解码器，以此对编码特征进行局部校正。DACN使用三种损失函数，分别考虑点、边缘和分割区域等约束，优化实例标注的结果。该系统即可以自动生成选定实例的边界曲线，也可交互式地对错误标注点进行修正，使其进一步趋向于目标的实际轮廓。基于Cityscapes, ADE20K和Rooftop三个跨域数据集的实验表明，相比现有方法，该方法在实例分割和标注任务上能得到更好的泛化性能。
+
+%\newpage
+%中文摘要ABF
+\end{zhaiyao}
+
+\begin{guanjianci}
+语义与实例分割；边缘检测；弱监督学习；小样本学习；轻量级模型
+\end{guanjianci}
+
+
+\begin{abstract}
+
+With the rapid development of society and diversity of media forms, how to understand and segment the semantic information efficiently and accurately has become one of the challenging tasks in the field of computer vision. Image segmentation is an important branch in computer vision research, which is a focus of image understanding, and is widely used in remote sensing, target tracking, industrial detection and traffic monitoring. Among them, the research on understanding the multi-category features of images under a variety of constraints such as supervision or weak supervision, reducing the computational complexity of models and completing image analysis and object prediction efficiently is an important topic in computer vision and graphics.
+
+This thesis focuses on the efficient segmentation of images and related application scene, including application of fine-grained edge perception method in image segmentation, object counting and segmentation in dense crowd scene, the construction of lightweight convolutional model with small samples and its application in semantic segmentation, interactive image segmentation and automatic instance segmentation algorithm. The major contributions of the thesis are:
+
+1. The image semantic segmentation methods always had edge blurring and low accuracy problems. Addressing these problems, we propose an image segmentation method based on multi-category edge perception. Firstly, the proposed Multi-sigmoid loss function is used for building multi-category objects segmentation model that can optimize the boundaries of different objects. Then, we construct the fine-grained edge detection model called Multi-Scale encode and decode Fuse (MSDF) model. Based on MSDF model, the solution of occlusion edge detection is studied. Finally, the segmentation information extracted from FCN-CRF is taken as unary potentials and edge features detected from MSDF are taken as pairwise potential, the global energy function consists of these two components, which is minimized to further optimize the segmentation results. Experiments are performed on the Pascal-context and SIFT Flow datasets, which show that the proposed model performs well.
+
+2.	Addressing the problem of object segmentation, counting and recognition, we propose a Scale-Recursive encoder-decoder Network with Point Supervision (SRN+PS). On the one hand, an encoder-decoder recurrent structure uses features between adjacent scales to tackle scale variation, and a novel loss function, called the row vector-based counting loss, is proposed to focus on the crowd counting accuracy. On the other hand, we employ an additional point segmentation task in training and combine features learned from the two tasks above, which can improve the quality of density map and the performance of crowed counting. Finally, we a weakly supervised framework based on the SRN structure and the Convolutional Winner-Take-All (CWTA) module. Experiments on the ShanghaiTech, UCF$\_$CC$\_$50 and UCSD datasets demonstrate the effectiveness of our proposed method.
+
+3.	Addressing the problems such as small samples and weak labels in training sets, this thesis discusses two related situations of lightweight data and lightweight model. Light weight data includes weak labeling data and small samples. Firstly, in the specific scene of surface defect detection, we propose a lightweight fully convolutional module based on image patches, which is used to build a multi-column convolutional neural network. A multiple instance learning (MIL) pooling layer to generate more accurate results. Experiments on industrial DAGM 2007 dataset show the effective performance of this model in surface defect segmentation. Then, in the few shot semantic segmentation, we propose a Multi-scale Discriminative Location-aware (MDL) network. This method uses the feature extracted from the support images to tune the parameters of three scales of image segmentation branch, and discriminative location-aware architecture further improves the efficiency of few-shot segmentation. Experimental results on the Pascal VOC 2012 dataset show that a high segmentation accuracy of MDL model. Finally, based on above two lightweight scenarios, we build a general lightweight scattering transformation model, which adopts a two-direction RNN layer based on image patches to sweep both horizontally and vertically across the image to obtain the sequence features. At the same time, the wavelet transform is used as a fixed filter and a learnable weight matrix with sparse feature is added in it. This proposed lightweight scattering transform layer can construct a variety of hybrid architectures. Quantitative experiments on MNIST, CIFAT-10,CIFAR-100, Small NORB, Tiny ImageNet verify the classification accuracy of this method under small training samples. Experiments based on the medical dataset verify the effectiveness of this method in semantic segmentation.
+
+4.	Addressing the problems of the generalization of object instance segmentation method and instance annotation, we propose a deep active curve network (DACN) with simple interaction, and an online annotation system based on FLASK framework is designed. The multi-scale encoder firstly predicts a coarse result and fuses the edge and segmentation features in a multi-task learning framework. Then, the graph convolution network with multiple residual layers is used as the decoder to locally correct the encoding features. DACN uses three loss functions to optimize the results of instance annotation by considering constraints such as point, edge and segmentation region respectively. This system can not only automatically generate the boundary curve of the selected instance, but also interactively correct the wrong labeling points the make them move to the actual contour of the target. Experiments based on three cross-domain datasets including Cityscapes, ADE20K and Rooftop show that DACN achieve better generalization performance in instance segmentation and annotation tasks than existing methods.
+
+\end{abstract}
+
+
+\begin{keywords}
+Semantic and instance segmentation; Edge detection; Weakly supervised learning; few shot learning; lightweight model
+\end{keywords}
